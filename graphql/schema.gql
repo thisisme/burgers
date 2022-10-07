@@ -1,0 +1,31 @@
+type User {
+  name: String!
+  email: String!
+  burgers: [Burger] @relation
+}
+
+type Restaurant {
+  name: String!
+  street: String!
+  city: String!
+  post: String!
+}
+
+type Burger {
+  burger: String!
+  grade: Int!
+  images: [Image] @relation
+  restaurant: Restaurant! @relation
+  user: User!
+}
+
+type Image {
+  name: String!
+  url: String!
+  burger: Burger!
+}
+
+type Query {
+  allBurgers: [Burger!]
+  allRestaurants: [Restaurant!]
+}

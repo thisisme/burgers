@@ -1,8 +1,16 @@
+import { NextPage } from 'next';
+import Head from 'next/head'
 import Layout from '../components/layout';
+import useSWR from 'swr';
+import { gql } from 'graphql-request';
+import { graphQLClient } from '../lib/graphql-client';
 
-export default function Rate() {
+const Rate: NextPage = () => {
   return (
     <Layout>
+      <Head>
+        <title>Betygsätt din burgare | Burgers @ srvr.at</title>
+      </Head>
       <h1>Rate your burger</h1>
       <div className="form-continer grid md:grid-cols-2 md:gap-4">
         <form action="post" className='flex flex-col'>

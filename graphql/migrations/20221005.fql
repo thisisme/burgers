@@ -1,0 +1,18 @@
+CreateIndex({
+  name: "allBurgers",
+  source: Collection("Burger")
+})
+
+Let(
+  {
+    index_params: {
+      name: "allBurgers",
+      source: Collection("Burger")
+    }
+  },
+  If(
+    Exists(Index("allBurgers")),
+    Update(Index("allBurgers"), Var("index_params")),
+    CreateIndex(Var("index_params))
+  )
+)
